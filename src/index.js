@@ -3,11 +3,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import Browse from './components/Browse';
+import { Provider } from 'react-redux';
+import appStore from './store/appStore';
+import Body from './components/Body';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const appRouter = createBrowserRouter([
+  {
+      path: "/",
+      element: <Body />
+  },
+  {
+      path: "/browse",
+      element: <Browse />
+  }
+])
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter}>
+          <App />
+      </RouterProvider>
+    </Provider>
+  
   </React.StrictMode>
 );
 
