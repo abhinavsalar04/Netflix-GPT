@@ -5,6 +5,7 @@ import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfil
 import {auth} from "../utils/firebase"
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/userSlice";
+import { NETFLIX_BG, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
 
@@ -44,13 +45,11 @@ const Login = () => {
                 const user = userCredential.user;
                 console.log("User signed up: ", user);
 
-                const {uid, displayName, email, photoURL} = auth.currentUser;
-               
                 updateProfile(auth.currentUser, {
                     displayName: name.current.value, 
-                    photoURL: photoURL,
+                    photoURL: USER_AVATAR,
                   }).then(() => {
-
+                    const {uid, displayName, email, photoURL} = auth.currentUser;
                     dispatch(addUser({
                         uid: uid,
                         displayName: displayName,
@@ -93,7 +92,7 @@ const Login = () => {
         <div className="">
             <Header />
             <div className="absolute">
-            <img className="min-h-fit min-w-fit" src="https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-751f-4c3e-9c8d-1240c1ca6188/cf244808-d722-428f-80a9-052acdf158ec/IN-en-20231106-popsignuptwoweeks-perspective_alpha_website_small.jpg" 
+            <img className="min-h-fit min-w-fit" src={NETFLIX_BG} 
                 alt="background"
             />
             </div>
