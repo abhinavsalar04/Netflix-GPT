@@ -10,7 +10,7 @@ const usePopularMovies = () => {
         
         const josnData = await moviesList.json();
         dispatch(addPopularMovies(josnData.results));
-        console.log("Popular: ", josnData);
+        // console.log("Popular: ", josnData);
 
     }
 

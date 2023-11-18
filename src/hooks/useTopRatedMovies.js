@@ -9,8 +9,8 @@ const useTopRatedMovies = () => {
         const moviesList = await fetch("https://api.themoviedb.org/3/movie/top_rated", API_OPTIONS);
 
         const jsonData = await moviesList.json();
-        console.log("TopRated:", jsonData);
         dispatch(addTopRatedMovies(jsonData.results));
+        // console.log("TopRated:", jsonData);
     }
 
     useEffect(() => {

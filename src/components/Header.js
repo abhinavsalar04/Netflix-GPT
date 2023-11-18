@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
-import { NETFLIX_LOGO, USER_AVATAR } from "../utils/constants";
+import { NETFLIX_LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { toggleGptSearchView } from "../store/gptSlice";
+import { changeLanguage } from "../store/configSlice";
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const user = useSelector(store => store.user);
+    const showGptSearch = useSelector(store => store.gpt.showGptSearch);
   
 
     const signoutHandler = () => {
@@ -53,6 +55,12 @@ const Header = () => {
       const handleShowGptSearch = () => {
           dispatch(toggleGptSearchView());
       }
+
+
+      const changeLanguageHandler = (event) => {
+        // console.log(event.target.value);
+        dispatch(changeLanguage(event.target.value));
+      }
     return (
         <div className="absolute w-screen px-6 py-4 bg-gradient-to-b from-black z-10 flex justify-between">
             <img 
@@ -62,9 +70,28 @@ const Header = () => {
                 />
             { user &&
                 <div className="flex p-2">
+                    {
+                      showGptSearch && 
+                      <div >
+                        <select 
+                          onChange={changeLanguageHandler}
+                          className="text-gray-300 bg-[rgb(51,51,51)] h-10 px-2 mx-4 rounded-md my-[14px] bg-opacity-80">
+                          {
+                            SUPPORTED_LANGUAGES.map((lang) => (
+                                <option 
+                                  key={lang.identifier} 
+                                  value={lang.identifier}>
+                                  {lang.name}
+                                </option>)
+                              )
+                          }
+                        </select>
+                      </div>
+                    }
+                    
                     <button
                       onClick={handleShowGptSearch}
-                      className="bg-white text-[rgb(229,21,9)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-10 ">
+                      className="text-gray-300 bg-[rgb(229,21,9)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-80 ">
                       GPT Search
                     </button>
                     <img
@@ -73,7 +100,7 @@ const Header = () => {
                     />
                     <button
                         onClick={signoutHandler}
-                        className="bg-white  text-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-10 ">
+                        className="text-gray-300  bg-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-80 ">
                         Sign Out
                     </button>
                 </div>

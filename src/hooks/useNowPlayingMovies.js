@@ -16,7 +16,7 @@ const useNowPlayingMovies = () => {
         
         // adding nowPLaying movies to moviesSlice store
         dispatch(addNowPlayingMovies(jsonData.results));
-        console.log("Now Playing", jsonData);
+        // console.log("Now Playing", jsonData);
     };
 
     useEffect(() => {
