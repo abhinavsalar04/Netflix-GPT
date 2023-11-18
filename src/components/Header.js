@@ -5,12 +5,13 @@ import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { NETFLIX_LOGO, USER_AVATAR } from "../utils/constants";
+import { toggleGptSearchView } from "../store/gptSlice";
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const user = useSelector(store => store.user);
-
+  
 
     const signoutHandler = () => {
         signOut(auth).then(() => {
@@ -48,6 +49,10 @@ const Header = () => {
         // Unsubscribe to the onAuthStateChange when ever we are not using Header(unmounting Header)
         return () => unsubscribe();
       }, []);
+
+      const handleShowGptSearch = () => {
+          dispatch(toggleGptSearchView());
+      }
     return (
         <div className="absolute w-screen px-6 py-4 bg-gradient-to-b from-black z-10 flex justify-between">
             <img 
@@ -57,13 +62,18 @@ const Header = () => {
                 />
             { user &&
                 <div className="flex p-2">
+                    <button
+                      onClick={handleShowGptSearch}
+                      className="bg-white text-[rgb(229,21,9)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-10 ">
+                      GPT Search
+                    </button>
                     <img
                         className="w-10 rounded-[100%] m-4"
                         alt="userIcon" src={USER_AVATAR} 
                     />
                     <button
                         onClick={signoutHandler}
-                        className="text-white  bg-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px]">
+                        className="bg-white  text-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-10 ">
                         Sign Out
                     </button>
                 </div>

@@ -37,6 +37,9 @@
 - TMDB Movie Poster CDN
 - Made the browse page amazing with tailwind css
 - usePopularMovies, UpcomingMovies, topRatedMovies custom hook
+- GPT Search feature
+
+- Gpt Search, GptSearchBar components, gptSlice, header toggle button
 
 
 
