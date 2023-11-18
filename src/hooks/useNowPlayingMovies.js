@@ -10,12 +10,13 @@ const useNowPlayingMovies = () => {
             "https://api.themoviedb.org/3/movie/now_playing?page=1",
             API_OPTIONS
         );
-
+        
+        // console.log();
         const jsonData = await moviesList.json();
         
         // adding nowPLaying movies to moviesSlice store
-        dispatch(addNowPlayingMovies(jsonData));
-        // console.log(jsonData);
+        dispatch(addNowPlayingMovies(jsonData.results));
+        console.log("Now Playing", jsonData);
     };
 
     useEffect(() => {

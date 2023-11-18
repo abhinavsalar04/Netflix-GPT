@@ -5,9 +5,12 @@ export const NETFLIX_BG = "https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-7
 export const USER_AVATAR = "https://avatars.githubusercontent.com/u/96479797?v=4";
 
 export const API_OPTIONS = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTdhMDA3NzI4OTI1YTBmNzc2NWI2M2E4ZTc2MDg3NSIsInN1YiI6IjY1NTcwZGEyYjU0MDAyMTRkM2M5ZGJlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.r7sYGRY8yomFbshDZ0DRHIA5vGgoqDfd21zSdui5LDU'
-    }
-  };
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTdhMDA3NzI4OTI1YTBmNzc2NWI2M2E4ZTc2MDg3NSIsInN1YiI6IjY1NTcwZGEyYjU0MDAyMTRkM2M5ZGJlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.r7sYGRY8yomFbshDZ0DRHIA5vGgoqDfd21zSdui5LDU'
+  }
+};
+
+
+  export const MOVIE_POSTER_CDN = "https://image.tmdb.org/t/p/w500";
