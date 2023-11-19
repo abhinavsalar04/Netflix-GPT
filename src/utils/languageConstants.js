@@ -10,6 +10,11 @@ const lang = {
     spanish: {
         search: "Buscar",
         placeholder: "¿Qué quieres ver hoy?"
+    },
+    french: {
+        search: "Recherche",
+        placeholder: "Que veux-tu regarder aujourd’hui ?"
+
     }
 }
 

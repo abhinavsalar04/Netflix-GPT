@@ -4,6 +4,8 @@ export const NETFLIX_BG = "https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-7
 
 export const USER_AVATAR = "https://avatars.githubusercontent.com/u/96479797?v=4";
 
+export const MOVIE_POSTER_CDN = "https://image.tmdb.org/t/p/w500";
+
 export const API_OPTIONS = {
   method: 'GET',
   headers: {
@@ -15,7 +17,16 @@ export const API_OPTIONS = {
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English"}, 
   { identifier: "hindi", name: "Hindi"}, 
-  {identifier: "spanish", name: "Spanish"}
+  {identifier: "spanish", name: "Spanish"},
+  {identifier: "french", name: "French"}
 ];
 
-  export const MOVIE_POSTER_CDN = "https://image.tmdb.org/t/p/w500";
+export const OPENAI_API_KEY = "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";
+
+export const BARD_API_KEY = "AIzaSyC2vwec0VBhKGpS2iYWreIjOK1sEFKsxQM";
+
+export const MODEL_NAME = "models/text-bison-001";
+
+export const Secure_3PSID = "ACA-OxNW1HSr2z0HriW2ymWku7stJYb_Khck6x9tT_isd1nlWKot8ty7CbxTz46lPf5xvWVV8WHt"
+export const Secure_1PSID = "ACA-OxPP__g1nem8MPAjlHhAu6swcpHxjT_TDx43JuH0LdtP0NatyqH3xnfbzHOGz_7Oz55gorh4"
+

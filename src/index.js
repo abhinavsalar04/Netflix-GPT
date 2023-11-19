@@ -23,14 +23,14 @@ const appRouter = createBrowserRouter([
 root.render(
   // due to React.StrictMode the API calls or many other operations performed
   // twice to identify whether there is an inconsistency in rendering cycle or not
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={appStore}>
       <RouterProvider router={appRouter}>
           <App />
       </RouterProvider>
     </Provider>
   
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

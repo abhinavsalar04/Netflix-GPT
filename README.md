@@ -38,8 +38,11 @@
 - Made the browse page amazing with tailwind css
 - usePopularMovies, UpcomingMovies, topRatedMovies custom hook
 - GPT Search feature
+- Gpt Search Bar implemented
+- Gpt Search Show/Hide toggle button implemented using gptSlice store data
+- Config Slice added to store for dynamic language data
+- Gpt Multilingual Search Bar implemented - Hindi, English, Spanish 
 
-- Gpt Search, GptSearchBar components, gptSlice, header toggle button
 
 
 
