@@ -15,11 +15,11 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTdhMDA3NzI4OTI1YTBmNzc2NWI2M2E4ZTc2MDg3NSIsInN1YiI6IjY1NTcwZGEyYjU0MDAyMTRkM2M5ZGJlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.r7sYGRY8yomFbshDZ0DRHIA5vGgoqDfd21zSdui5LDU'
+    Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_TOKEN,
   }
 };
 // openAI API KEY
-export const OPENAI_API_KEY = "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";
+export const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 // ====================================================================================================================================================================
 // ====================================================================================================================================================================
@@ -34,12 +34,3 @@ export const SUPPORTED_LANGUAGES = [
 // ====================================================================================================================================================================
 // ====================================================================================================================================================================
 
-// Bard API related data
-export const BARD_API_KEY = "AIzaSyC2vwec0VBhKGpS2iYWreIjOK1sEFKsxQM";
-export const MODEL_NAME = "models/text-bison-001";
-
-export const Secure_3PSID = "ACA-OxNW1HSr2z0HriW2ymWku7stJYb_Khck6x9tT_isd1nlWKot8ty7CbxTz46lPf5xvWVV8WHt"
-export const Secure_1PSID = "ACA-OxPP__g1nem8MPAjlHhAu6swcpHxjT_TDx43JuH0LdtP0NatyqH3xnfbzHOGz_7Oz55gorh4"
-
-// ====================================================================================================================================================================
-// ====================================================================================================================================================================
