@@ -4,8 +4,8 @@ const gptSlice = createSlice({
     name: 'gpt',
     initialState: {
         showGptSearch: false,
-        moviesName: null,
-        moviesResult: null
+        gptMoviesName: null,
+        tmdbMoviesResult: null
     },
     reducers: {
         toggleGptSearchView: (state) => {
@@ -13,9 +13,9 @@ const gptSlice = createSlice({
         },
 
         addGptMoviesRsult: (state, action) => {
-            const {moviesName, moviesResult} = action.payload;
-            state.moviesName = moviesName;
-            state.moviesResult = moviesResult;
+            const {gptMoviesName, tmdbMoviesResult} = action.payload;
+            state.gptMoviesName = gptMoviesName;
+            state.tmdbMoviesResult = tmdbMoviesResult;
         }
     }
 });

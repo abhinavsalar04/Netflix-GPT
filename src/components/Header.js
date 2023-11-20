@@ -75,10 +75,11 @@ const Header = () => {
                       <div >
                         <select 
                           onChange={changeLanguageHandler}
-                          className="text-gray-300 bg-[rgb(51,51,51)] h-10 px-2 mx-4 rounded-md my-[14px] bg-opacity-80">
+                          className="text-gray-300 bg-[rgb(51,51,51)] h-10 px-2 mx-4 rounded-md my-[14px] bg-opacity-80 font-bold">
                           {
                             SUPPORTED_LANGUAGES.map((lang) => (
                                 <option 
+                                  
                                   key={lang.identifier} 
                                   value={lang.identifier}>
                                   {lang.name}
@@ -91,7 +92,7 @@ const Header = () => {
                     
                     <button
                       onClick={handleShowGptSearch}
-                      className="text-gray-300 bg-[rgb(229,21,9)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-80 ">
+                      className="text-gray-300 bg-[rgb(229,21,9)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-90 font-bold">
                       GPT Search
                     </button>
                     <img
@@ -100,7 +101,7 @@ const Header = () => {
                     />
                     <button
                         onClick={signoutHandler}
-                        className="text-gray-300  bg-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-80 ">
+                        className="text-gray-300  bg-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-90 font-bold">
                         Sign Out
                     </button>
                 </div>

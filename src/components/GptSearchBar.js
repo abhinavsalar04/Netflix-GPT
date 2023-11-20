@@ -54,15 +54,14 @@ const GptSearchBar = () => {
 
           const data =  gptMovies.map((movie) => searchMovieTMDB(movie));
 
-          // The data will contains unresolved Promises for each call not the movie data
-
-          // we to resolve the data explicitly using Promise.all();
+        //    The data will contains unresolved Promises for each call not the movie data
+        //    we to resolve the data explicitly using Promise.all();
 
           const moviesResult = await Promise.all(data);
 
            console.log(moviesResult);
 
-          dispatch(addGptMoviesRsult({moviesName: gptMovies, moviesResult: moviesResult}));
+          dispatch(addGptMoviesRsult({gptMoviesName: gptMovies, tmdbMoviesResult: moviesResult}));
 
 
     }
