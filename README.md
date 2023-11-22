@@ -41,7 +41,17 @@
 - Gpt Search Bar implemented
 - Gpt Search Show/Hide toggle button implemented using gptSlice store data
 - Config Slice added to store for dynamic language data
-- Gpt Multilingual Search Bar implemented - Hindi, English, Spanish 
+- Gpt Multilingual Search Bar implemented - Hindi, English, Spanish
+-  Get Open AI API key
+- Get Search API call
+- Fetched movies suggested by GPT from TMDB
+- created gptSLice and added fetched gpt movies and teir details
+- Reused MovieList comonent to show GPT sugggested movies
+- Memoization
+- Adding .env file to make API key secure
+- Made our App responsive
+
+
 
 
 
@@ -60,4 +70,5 @@
 
 - NetflixGPT
     - Search Bar
+    - Multilingual Search bar
     - Movie Suggestions

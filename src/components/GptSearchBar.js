@@ -31,9 +31,9 @@ const GptSearchBar = () => {
             ". Only give me the names of 5 movies, comma separated like the example ahead. Example Result: Krish, URI, Mission Mangal, Koi Mil Gya, War";
        
         console.log(isFirstCall);
-        if(isFirstCall) return;
+        // if(isFirstCall) return;
 
-        setIsFirstCall(true);
+        // setIsFirstCall(true);
         const chatCompletion = await openai.chat.completions.create({
             messages: [{ role: 'user', content: prompt }],
             model: 'gpt-3.5-turbo',
@@ -66,19 +66,19 @@ const GptSearchBar = () => {
 
     }
     return (
-        <div className="pt-36 flex justify-center">
+        <div className="pt-[42%] md:pt-36 flex justify-center">
             <form 
                 onSubmit={(e) => e.preventDefault()}
-                className="w-1/2 bg-black grid grid-cols-12 rounded-md min-w-[500px]">
+                className="w-full md:w-1/2 bg-black grid grid-cols-12 rounded-md md:min-w-[500px] mx-4 md:mx-0 text-sm md:text-[16px]">
                 <input 
                     ref={searchText}
                     type="text" 
                     placeholder={lang[langKey].placeholder} 
-                    className="p-[10px] m-4 col-span-9 rounded-md bg-[rgb(51,51,51)] text-white"    
+                    className="p-2 md:p-4 m-4 col-span-9 rounded-md bg-[rgb(51,51,51)] text-white"    
                     />
                 <button
                     onClick={gptSearchHandler}
-                    className="col-span-3 m-4  text-gray-300 font-bold bg-[rgb(229,21,9)] bg-opacity-80 rounded-md"
+                    className="col-span-3 m-4  text-gray-300 font-bold  bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] bg-opacity-80 rounded-md"
                 >
                     {lang[langKey].search}
                 </button>

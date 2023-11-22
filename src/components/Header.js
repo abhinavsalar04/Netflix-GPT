@@ -62,20 +62,20 @@ const Header = () => {
         dispatch(changeLanguage(event.target.value));
       }
     return (
-        <div className="absolute w-screen px-6 py-4 bg-gradient-to-b from-black z-10 flex justify-between">
+        <div className="absolute w-screen md:px-6 md:py-4  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
             <img 
-                className="w-44"
+                className="w-44 mx-auto md:mx-0"
                 src={NETFLIX_LOGO}
                 alt = "logo"
                 />
             { user &&
-                <div className="flex p-2">
+                <div className="flex p-2 justify-between  md:m-0">
                     {
                       showGptSearch && 
-                      <div >
+                      <div className="flex">
                         <select 
                           onChange={changeLanguageHandler}
-                          className="text-gray-300 bg-[rgb(51,51,51)] h-10 px-2 mx-4 rounded-md my-[14px] bg-opacity-80 font-bold">
+                          className="text-gray-300 bg-[rgb(51,51,51)] h-10 px-2 mx-4 md:mx-6 rounded-md md:my-[14px] bg-opacity-80 font-bold text-sm md:text-md ">
                           {
                             SUPPORTED_LANGUAGES.map((lang) => (
                                 <option 
@@ -92,16 +92,16 @@ const Header = () => {
                     
                     <button
                       onClick={handleShowGptSearch}
-                      className="text-gray-300 bg-[rgb(229,21,9)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-90 font-bold">
+                      className="text-gray-300 md:bg-[rgb(194,17,26)]  bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] h-10 px-2 mx-4 md:mx-2  rounded-md md:my-[14px] bg-opacity-90 font-bold text-sm md:text-md">
                       GPT Search
                     </button>
                     <img
-                        className="w-10 rounded-[100%] m-4"
+                        className="hidden md:block w-10 h-10 rounded-[100%] m-4"
                         alt="userIcon" src={USER_AVATAR} 
                     />
                     <button
                         onClick={signoutHandler}
-                        className="text-gray-300  bg-[rgb(194,17,26)] h-10 px-2 mx-2 rounded-md my-[14px] bg-opacity-90 font-bold">
+                        className="text-gray-300  md:bg-[rgb(194,17,26)] bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] h-10 px-2 mx-4 md:mx-2 rounded-md md:my-[15px] bg-opacity-90 font-bold text-sm md:text-md">
                         Sign Out
                     </button>
                 </div>
