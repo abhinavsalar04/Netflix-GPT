@@ -8,6 +8,10 @@ export const USER_AVATAR = "https://avatars.githubusercontent.com/u/96479797?v=4
 
 export const MOVIE_POSTER_CDN = "https://image.tmdb.org/t/p/w500";
 
+export const IMAGES_BASE_URL = "https://image.tmdb.org/t/p/original";
+
+export const MOVIE_DETAILS_BASE_URL = "https://api.themoviedb.org/3/movie/";
+
 // ====================================================================================================================================================================
 // ====================================================================================================================================================================
 // OpenAI API key options 

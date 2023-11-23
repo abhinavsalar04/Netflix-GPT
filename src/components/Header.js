@@ -8,6 +8,7 @@ import { NETFLIX_LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constan
 import { toggleGptSearchView } from "../store/gptSlice";
 import { changeLanguage } from "../store/configSlice";
 const Header = () => {
+    const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ const Header = () => {
     
             // due to this whenever a use logged in user will be redirect to /browse page
             // Still if we try to access the "/" route then also user will be redirect to the /browse page
+            if(!selectedMovieDetails)
             navigate("/browse");
           } else {
     
@@ -61,6 +63,8 @@ const Header = () => {
         // console.log(event.target.value);
         dispatch(changeLanguage(event.target.value));
       }
+
+      console.log("Header");
     return (
         <div className="absolute w-screen md:px-6 md:py-4  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
             <img 
