@@ -36,12 +36,12 @@ const MovieDetailsMainContainer = () => {
                 <Header />
             </div>
             <div
-                className=" flex flex-col md:flex-row pb-8 pt-32 justify-center bg-gradient-to-b from-[rgb(51,51,51)] to-black  text-white grid-cols-12 ">
+                className=" flex flex-col md:flex-row pt-12 pb-8 md:pt-32 justify-center bg-gradient-to-b from-[rgb(51,51,51)] to-black  text-white grid-cols-12 ">
                     {/* <Header /> */}
-                <div className="px-2 mx-4 ml-8">
+                <div className="px-8 md:mx-4 md:ml-8">
                     <img className="w-full md:w-[325px]  rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
                 </div>
-                <div className="max-w-[50%] mx-8">
+                <div className="md:max-w-[50%] my-8 mx-8 md:py-0 md:my-0">
                     <h1 className="text-4xl">{title}</h1>
                     <h2 className="text-xl my-2">{tagline}</h2>
                     <div className="my-4">

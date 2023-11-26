@@ -87,7 +87,7 @@ const Header = () => {
 
       console.log("Header");
     return (
-        <div className=" fixed w-screen md:py-0 md:px-6 bg-black bg-gradient-b from-black to-white bg-opacity-[40%] z-10 flex flex-col md:flex-row justify-between">
+        <div className="w-screen md:py-0 md:px-6 bg-black bg-gradient-b from-black to-white bg-opacity-[40%] z-10 flex flex-col md:flex-row justify-between">
             <img 
                 onClick={goToHomePageHandler}
                 className="w-36 mx-auto md:mx-0 cursor-pointer"
