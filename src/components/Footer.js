@@ -9,7 +9,7 @@ import {
 const Footer = () => {
     // console.log("Footer");
     return (
-        <footer className="py-[50px] text-white  bg-black">
+        <footer className=" py-[50px] w-full text-white  bg-black">
             <div className="flex items-center flex-col">
                 <ul className="list-none flex items-center justify-center gap-[15px] mb-[20px]">
                     <li className="cursor-pointer text-[12px] transition-all ease duration-300 hover:text-red-600">Terms Of Use</li>

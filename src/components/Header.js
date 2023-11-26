@@ -5,7 +5,7 @@ import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
-import { toggleGptSearchView } from "../store/gptSlice";
+import { setGptSearchView, toggleGptSearchView } from "../store/gptSlice";
 import { changeLanguage } from "../store/configSlice";
 const Header = () => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
@@ -17,6 +17,7 @@ const Header = () => {
   
 
     const signoutHandler = () => {
+      dispatch(setGptSearchView(false));
         signOut(auth).then(() => {
             dispatch(removeUser());
             navigate("/");
@@ -44,18 +45,28 @@ const Header = () => {
             if(!selectedMovieDetails)
             navigate("/browse");
           } else {
-    
+            // dispatch(setGptSearchView(false));
             dispatch(removeUser());
             navigate("/");
           }
         });
+       
+        
 
         // Unsubscribe to the onAuthStateChange when ever we are not using Header(unmounting Header)
-        return () => unsubscribe();
+        // return () => unsubscribe();
       }, []);
 
       const handleShowGptSearch = () => {
+        const gptSearchState = showGptSearch;
           dispatch(toggleGptSearchView());
+
+          if(!gptSearchState){
+            navigate("/gpt_search");
+          }
+          else{
+            navigate("/browse");
+          }
       }
 
 
@@ -64,22 +75,33 @@ const Header = () => {
         dispatch(changeLanguage(event.target.value));
       }
 
+      const goToHomePageHandler = () => {
+        dispatch(setGptSearchView(false));
+          if(user){
+            navigate("/browse");
+          }
+          else{
+            navigate("/");
+          }
+      }
+
       console.log("Header");
     return (
-        <div className="absolute w-screen md:px-6 md:py-4  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+        <div className=" fixed w-screen md:py-0 md:px-6 bg-black bg-gradient-b from-black to-white bg-opacity-[40%] z-10 flex flex-col md:flex-row justify-between">
             <img 
-                className="w-44 mx-auto md:mx-0"
+                onClick={goToHomePageHandler}
+                className="w-36 mx-auto md:mx-0 cursor-pointer"
                 src={NETFLIX_LOGO}
                 alt = "logo"
                 />
             { user &&
-                <div className="flex p-2 justify-between  md:m-0">
+                <div className="flex px-2 justify-between  md:m-0">
                     {
                       showGptSearch && 
                       <div className="flex">
                         <select 
                           onChange={changeLanguageHandler}
-                          className="text-gray-300 bg-[rgb(51,51,51)] h-10 px-2 mx-4 md:mx-6 rounded-md md:my-[14px] bg-opacity-80 font-bold text-sm md:text-md ">
+                          className="text-white bg-[rgb(51,51,51)] bg-opacity-60 h-8 px-2 mx-4 md:mx-6 rounded-md md:my-[14px] font-bold " >
                           {
                             SUPPORTED_LANGUAGES.map((lang) => (
                                 <option 
@@ -96,16 +118,16 @@ const Header = () => {
                     
                     <button
                       onClick={handleShowGptSearch}
-                      className="text-gray-300 md:bg-[rgb(194,17,26)]  bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] h-10 px-2 mx-4 md:mx-2  rounded-md md:my-[14px] bg-opacity-90 font-bold text-sm md:text-md">
+                      className="text-white  h-8 px-2 mx-4 md:mx-2  rounded-md md:my-[14px] bg-opacity-90 font-bold hover:text-red-600">
                       GPT Search
                     </button>
                     <img
-                        className="hidden md:block w-10 h-10 rounded-[100%] m-4"
+                        className="hidden md:block w-8 h-8 rounded-[100%] m-4"
                         alt="userIcon" src={USER_AVATAR} 
                     />
                     <button
                         onClick={signoutHandler}
-                        className="text-gray-300  md:bg-[rgb(194,17,26)] bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] h-10 px-2 mx-4 md:mx-2 rounded-md md:my-[15px] bg-opacity-90 font-bold text-sm md:text-md">
+                        className="text-white   h-8 px-2 mx-4 md:mx-2 rounded-md md:my-[15px] bg-opacity-90 font-bold hover:text-red-600">
                         Sign Out
                     </button>
                 </div>

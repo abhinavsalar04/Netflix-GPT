@@ -1,9 +1,10 @@
-import Footer from "../Footer";
+
 import MovieDetailsMainContainer from "./MovieDetailsMainContainer";
 import MovieDetailsSecondaryContainer from "./MovieDetailsSecondaryContainer";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+
 const MovieDetails = () => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const navigate = useNavigate();
@@ -13,11 +14,11 @@ const MovieDetails = () => {
         navigate("/browse");
     },[]);
 
+    console.log("MovieDdetails Component!");
     return (
-        <div className="bg-black w-screen">
+        <div className="bg-black w-screen ">
             <MovieDetailsMainContainer />
             <MovieDetailsSecondaryContainer />
-            <Footer />
         </div>
     );
 }

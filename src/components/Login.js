@@ -89,10 +89,10 @@ const Login = () => {
         // sign in / sign up
     }
     return (
-        <div className="">
+        <div >
             <Header />
             <div className="absolute">
-            <img className="h-screen  w-screen  object-cover" src={NETFLIX_BG} 
+            <img className="h-screen w-screen object-cover bg-gradient-to-tr from-black  to-red-500" src={NETFLIX_BG} 
                 alt="background"
             />
             </div>

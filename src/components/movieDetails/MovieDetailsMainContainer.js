@@ -3,6 +3,7 @@ import { MOVIE_POSTER_CDN } from "../../utils/constants";
 import { FiPlayCircle } from "react-icons/fi";
 import CircleRating from "./CircleRating";
 import dayjs from "dayjs"
+import Header from "../Header";
 
 const MovieDetailsMainContainer = () => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails)
@@ -16,24 +17,31 @@ const MovieDetailsMainContainer = () => {
     const writers = crew?.filter((f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
     );
     
+    console.log(directors);
     const director = directors[0]?.name;
     const writer = writers[0]?.name;
-    console.log(director, writer);
+
+   
+    // console.log(director, writer);
     const {title, tagline, genres, poster_path, overview, backdrop_path, vote_average, release_date, runtime, status} = selectedMovieDetails;
     const hours = parseInt(runtime / 60), minutes = (runtime % 60);
 
-    console.log(poster_path);
+    // console.log(poster_path);
     const handleWatchTrailer = () => {
-        console.log(backdrop_path);
+        // console.log(backdrop_path);
     }
     return (
         <>
+           <div className="">
+                <Header />
+            </div>
             <div
-                className="flex py-8 justify-around  text-white grid-cols-12 opacity-90 bg-gradient-to-b from-[rgb(51,51,51)] to-black">
-                <div className="px-2 col-span-6 mx-4 ml-8">
-                    <img className="w-[2059px] lg:w-[580px] rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
+                className=" flex flex-col md:flex-row pb-8 pt-32 justify-center bg-gradient-to-b from-[rgb(51,51,51)] to-black  text-white grid-cols-12 ">
+                    {/* <Header /> */}
+                <div className="px-2 mx-4 ml-8">
+                    <img className="w-full md:w-[325px]  rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
                 </div>
-                <div className="mx-8 col-span-4">
+                <div className="max-w-[50%] mx-8">
                     <h1 className="text-4xl">{title}</h1>
                     <h2 className="text-xl my-2">{tagline}</h2>
                     <div className="my-4">

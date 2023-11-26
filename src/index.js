@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import appStore from './store/appStore';
 import Body from './components/Body';
 import MovieDetails from './components/movieDetails/MovieDetails';
+import GptSearchPage from './components/gptSearchPage/GptSearchPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const appRouter = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/movieDetails",
     element: <MovieDetails />
+  },
+  {
+    path: "gpt_search",
+    element: <GptSearchPage />
   }
 ])
 root.render(

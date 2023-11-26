@@ -1,14 +1,15 @@
 import React from "react";
 import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
-import MainContainer from "./MainContainer";
-import SecondaryContainer from "./SecondaryContainer";
+import MainContainer from "./homePage/MainContainer";
+import SecondaryContainer from "./homePage/SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import GptSearch from "./GptSearch";
+import GptSearch from "./gptSearchPage/GptSearch";
 import { useSelector } from "react-redux";
 import Footer from "./Footer";
+import GptSearchPage from "./gptSearchPage/GptSearchPage";
 
 const Browse = () => {
     const showGptSearch = useSelector(store => store.gpt.showGptSearch);
@@ -16,29 +17,14 @@ const Browse = () => {
     usePopularMovies();
     useTopRatedMovies();
     useUpcomingMovies();
+    console.log("Browse Compoenent!");
+    if(showGptSearch) return <GptSearchPage />
     return (
         <div className="">
             <Header />
-            {
-                showGptSearch ? 
-                (
-                    <div className="flex flex-col">
-                        <GptSearch />
-                        <Footer />
-                    </div>
-                    
-                ) : (
-                    <>
-                        <MainContainer />
-                        <SecondaryContainer />
-                        <Footer />
-                    </>
-                )
-            }
-            
-
-            
-            
+            <MainContainer />
+            <SecondaryContainer />
+            <Footer />
         </div>
     )
 }
