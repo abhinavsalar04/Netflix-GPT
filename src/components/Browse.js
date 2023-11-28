@@ -17,7 +17,7 @@ const Browse = () => {
     usePopularMovies();
     useTopRatedMovies();
     useUpcomingMovies();
-    console.log("Browse Compoenent!");
+    // console.log("Browse Compoenent!");
     if(showGptSearch) return <GptSearchPage />
     return (
         <div className="">

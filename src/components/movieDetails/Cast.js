@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import "./style.css";
+import "./cast_style.css";
+
 import { IMAGES_BASE_URL } from "../../utils/constants";
 
 

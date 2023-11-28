@@ -4,21 +4,23 @@ const moviesSlice = createSlice({
     name: "movies",
     initialState: {
         nowPlayingMovies: null,
-        trailerVideo: null,
+        homePageTrailerVideo: null,
         popularMovies: null,
         upcomingMovies: null,
         topRatedMovies: null,
         selectedMovieDetails: null,
         selectedMovieCredits: null,
+        selectedMovieTrailerVideo: null,
         similarMovies: null,
-        recommendedMovies: null
+        recommendedMovies: null,
+        showTrailer: false
     },
     reducers: {
         addNowPlayingMovies: (state, action) => {
             state.nowPlayingMovies = action.payload;
         },
-        addTrailerVideo: (state, action) => {
-            state.trailerVideo = action.payload;
+        addHomePageTrailerVideo: (state, action) => {
+            state.homePageTrailerVideo = action.payload;
         },
         addPopularMovies: (state, action) => {
             state.popularMovies = action.payload;
@@ -35,25 +37,33 @@ const moviesSlice = createSlice({
         addSelectMovieCredits: (state, action) => {
             state.selectedMovieCredits = action.payload;
         },
+        addSelectedMovieTrailerVideo: (state, action) => {
+            state.selectedMovieTrailerVideo = action.payload;
+        },
         addSimilarMovies: (state, action) => {
             state.similarMovies = action.payload;
         },
         addRecommendedMovies: (state, action) => {
             state.recommendedMovies = action.payload;
+        },
+        setShowTrailer: (state, action) =>  {
+            state.showTrailer = action.payload;
         }
     }
 });
 
 export const {
     addNowPlayingMovies, 
-    addTrailerVideo, 
+    addHomePageTrailerVideo, 
     addPopularMovies, 
     addTopRatedMovies, 
     addUpcomingMovies, 
     addSelectedMovieDetails,
     addSelectMovieCredits,
+    addSelectedMovieTrailerVideo,
     addSimilarMovies,
-    addRecommendedMovies
+    addRecommendedMovies,
+    setShowTrailer
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

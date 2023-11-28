@@ -1,14 +1,22 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MOVIE_POSTER_CDN } from "../../utils/constants";
 import { FiPlayCircle } from "react-icons/fi";
 import CircleRating from "./CircleRating";
 import dayjs from "dayjs"
 import Header from "../Header";
+import VideoPopup from "./VideoPopup";
+import ReactPlayer from "react-player";
+import { useState } from "react";
+import { setShowTrailer } from "../../store/moviesSlice";
+
 
 const MovieDetailsMainContainer = () => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails)
     const selectedMovieCredits = useSelector((store) => store.movies.selectedMovieCredits)
-    
+    const showTrailer = useSelector((store) => store.movies.showTrailer);
+    const dispatch = useDispatch();
+   
+    // const showTrailer = userSlice((store) => store.movies.showTrailer);
     if(!selectedMovieDetails) return null;
     const crew = selectedMovieCredits?.crew;
     
@@ -17,7 +25,7 @@ const MovieDetailsMainContainer = () => {
     const writers = crew?.filter((f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
     );
     
-    console.log(directors);
+    // console.log(directors);
     const director = directors[0]?.name;
     const writer = writers[0]?.name;
 
@@ -27,8 +35,9 @@ const MovieDetailsMainContainer = () => {
     const hours = parseInt(runtime / 60), minutes = (runtime % 60);
 
     // console.log(poster_path);
-    const handleWatchTrailer = () => {
-        // console.log(backdrop_path);
+    const handleWatchTrailer = (id) => {
+        dispatch(setShowTrailer(true));
+       
     }
     return (
         <>
@@ -60,11 +69,14 @@ const MovieDetailsMainContainer = () => {
                         <div className="w-20 "> 
                             <CircleRating rating={vote_average} />
                         </div>
-                        <div className="mx-[25px] cursor-pointer" onClick={handleWatchTrailer}>
+                        <div 
+                            className="mx-[25px] cursor-pointer" 
+                            onClick={() => handleWatchTrailer(selectedMovieDetails.id)}
+                        >
                             <FiPlayCircle style={{fontSize: "80px"}} className="transition-all ease-out 300 hover:text-red-700"/>
                         </div>
                         <div 
-                            onClick={handleWatchTrailer}
+                            onClick={() => handleWatchTrailer(selectedMovieDetails.id)}
                             className="text-xl cursor-pointer transition-all ease 300 hover:text-red-700" >
                             Watch Trailer
                         </div>
@@ -104,8 +116,23 @@ const MovieDetailsMainContainer = () => {
                         </div>
                         <hr className="" style={{borderTop: "1px solid #3e3f40"}}></hr>
                     </div>
-
                 </div>
+                <VideoPopup 
+                    showTrailer={showTrailer}
+                    setShowTrailer={setShowTrailer}
+                />
+                {/* { selectedMovieDetails &&
+                    <div className="w-[800px] h-[450px] aspect-w-9 aspect-h-16 align-middle mt-72 absolute rounded-lg">
+                        <ReactPlayer
+                            url={`https://www.youtube.com/watch?v=_u-WgSN5ymU&list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW`}
+                            controls
+                            width="100%"
+                            height="100%"
+                            playing={true}
+                        />
+                    </div>
+                    
+                } */}
             </div>
         </>
     );

@@ -17,7 +17,7 @@ const MovieDetails = () => {
 
     // useSimilarMovies(selectedMovieDetails?.id);
 
-    console.log("MovieDdetails Component!");
+    // console.log("MovieDdetails Component!");
     return (
         <div className="bg-black w-screen ">
             <MovieDetailsMainContainer />
