@@ -27,17 +27,40 @@
 
 Login/Sign Up page
 
-
-![Alt text](image.png)
-
+![Login_SignUp_Page](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/1b527e53-5b5a-4ccf-8da6-36854bda181d)
 
 
 
+Main Page 
+
+![BrowsePage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/58604cfd-670c-4637-a5af-cc24682d672c)
+
+
+Main Page movie suggestions
+
+![BrowsePage_Suggestions](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/72fe3250-d51e-4229-99ca-5dafb3acce07)
+
+
+GPT Search Page 
+
+![GPTSearchPage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/a2bb6f4c-f434-49ce-b3f3-793748e4754f)
+
+
+GPT Search Page multilingual feature
+
+![GptSearchPage_Multilingual](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/c60fe7cb-bd30-400a-8df9-bb664aea2c17)
 
 
 
+Movie Details Page 
+
+![MovieDetailsPage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/cfa57ad9-cecd-4b97-bea6-881ac4fc1722)
 
 
+
+Movie Details Page watch trailer
+
+![MovieDetailsPage_watchTrailer](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/3208fd5c-3e3f-401d-9d90-9fb95cf439b0)
 
 
 
