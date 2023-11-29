@@ -50,7 +50,6 @@ const GptSearchBar = () => {
           console.log(chatCompletion);
           if(!chatCompletion.choices){
             throw new Error("Unable to get response from GPT");
-            return;
           }
         
           // The result will be Koi Mil Gya, Andaz Apna Apna, Gadar
@@ -73,31 +72,49 @@ const GptSearchBar = () => {
 
     }
     return (
-        <div className="pt-[42%] md:pt-36 flex justify-center">
-            
-            <form 
-                onSubmit={(e) => e.preventDefault()}
-                className="w-full md:w-1/2 bg-black grid grid-cols-12 rounded-md md:min-w-[500px] mx-4 md:mx-0 text-sm md:text-[16px]">
-                <input 
-                    ref={searchText}
-                    type="text" 
-                    placeholder={lang[langKey].placeholder} 
-                    className="p-2 md:p-4 m-4 col-span-9 rounded-md bg-[rgb(51,51,51)] text-white"    
-                    />
-                <button
-                    onClick={gptSearchHandler}
-                    className="col-span-3 m-4  text-gray-300 font-bold  bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] bg-opacity-80 rounded-md"
+        <div className="pt-8 flex flex-col justify-center items-center">
+            <div
+                className="text-gray-300 bg-black  p-[14px] m-4 rounded-md text-center font-bold text-lg"
+            >
+                <div 
+                    className="bg-[rgb(51,51,51)] rounded text-center p-[6px] px-4"
                 >
-                    {lang[langKey].search}
-                </button>
-            </form>
-           {
-                callCount > 0 ? 
-                (<div className="w-24 h-16 px-4 my-2">
-                    <CircleRating rating={callCount} />
+                   {
+                        callCount > 0 ? 
+                        (
+                            <>
+                                Credits: 
+                                <span className={`${callCount <= 2 ? "text-red-600" : callCount <= 3 ? "text-orange-600" : "text-green-600"} pl-2`}
+                                >
+                                 {callCount}
+                                </span> 
+                            </>
+                        ) : (
+                            <span className="text-red-600 text-xl">Limit Exhausted!</span>
+                            
+                        )
+                    }     
                 </div>
-                ) : (<div className=" text-red-500 font-bold ml-2 my-4"> Limit Exhausted</div>)
-            }
+            </div>
+            <div className="flex justify-center md:w-[1300px] w-[95%]">
+                <form 
+                    onSubmit={(e) => e.preventDefault()}
+                    className="w-full md:w-1/2 bg-black grid grid-cols-12 rounded-md md:min-w-[500px] mx-4 md:mx-0 text-sm md:text-[16px]">
+                    <input 
+                        ref={searchText}
+                        type="text" 
+                        placeholder={lang[langKey].placeholder} 
+                        className="p-2 md:p-4 m-4 col-span-9 rounded-md bg-[rgb(51,51,51)] text-white"    
+                        />
+                    <button
+                        onClick={gptSearchHandler}
+                        className="col-span-3 m-4  text-gray-300 font-bold  bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] bg-opacity-80 rounded-md"
+                    >
+                        {lang[langKey].search}
+                    </button>
+                </form>
+            
+            </div>
         </div>
     );
 }

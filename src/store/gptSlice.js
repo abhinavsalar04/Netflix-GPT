@@ -7,7 +7,7 @@ const gptSlice = createSlice({
         gptMoviesName: null,
         tmdbMoviesResult: null,
         isGptSearchClicked: false,
-        callCount: 10,
+        callCount: 5,
     },
     reducers: {
         toggleGptSearchView: (state) => {

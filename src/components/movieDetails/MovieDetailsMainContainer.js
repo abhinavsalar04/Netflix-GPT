@@ -67,7 +67,7 @@ const MovieDetailsMainContainer = () => {
                     </div>
                     <div className="flex items-center my-4">
                         <div className="w-20 "> 
-                            <CircleRating rating={vote_average} />
+                            <CircleRating rating={vote_average} maxValue={10} isNumeric={false}/>
                         </div>
                         <div 
                             className="mx-[25px] cursor-pointer" 
