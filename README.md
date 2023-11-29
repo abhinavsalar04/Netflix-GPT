@@ -23,9 +23,12 @@
     - Movie Suggestions
 
 
+# Snnapshots
+
+Login/Sign Up page
 
 
-
+![Alt text](image.png)
 
 
 
