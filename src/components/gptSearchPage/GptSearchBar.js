@@ -2,11 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import lang from "../../utils/languageConstants";
 import { useRef, useState } from "react";
 import openai from "../../utils/openAI";
-import { addGptMoviesRsult } from "../../store/gptSlice";
+import { addGptMoviesRsult, setCallCount } from "../../store/gptSlice";
 import { API_OPTIONS } from "../../utils/constants";
+import CircleRating from "../movieDetails/CircleRating";
 
 
 const GptSearchBar = () => {
+    const callCount = useSelector((store) => store.gpt.callCount);
+
     const [isFirstCall, setIsFirstCall] = useState(false);
     const dispatch = useDispatch();
     const searchText = useRef(null);
@@ -23,6 +26,10 @@ const GptSearchBar = () => {
 
 
     const gptSearchHandler = async () => {
+        if(callCount <= 0) return;
+        
+        dispatch(setCallCount(callCount - 1));
+        console.log("callCount: ", callCount);
         console.log(searchText.current.value);
 
         
@@ -67,6 +74,7 @@ const GptSearchBar = () => {
     }
     return (
         <div className="pt-[42%] md:pt-36 flex justify-center">
+            
             <form 
                 onSubmit={(e) => e.preventDefault()}
                 className="w-full md:w-1/2 bg-black grid grid-cols-12 rounded-md md:min-w-[500px] mx-4 md:mx-0 text-sm md:text-[16px]">
@@ -83,6 +91,13 @@ const GptSearchBar = () => {
                     {lang[langKey].search}
                 </button>
             </form>
+           {
+                callCount > 0 ? 
+                (<div className="w-24 h-16 px-4 my-2">
+                    <CircleRating rating={callCount} />
+                </div>
+                ) : (<div className=" text-red-500 font-bold ml-2 my-4"> Limit Exhausted</div>)
+            }
         </div>
     );
 }

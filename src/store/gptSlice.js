@@ -6,7 +6,8 @@ const gptSlice = createSlice({
         showGptSearch: false,
         gptMoviesName: null,
         tmdbMoviesResult: null,
-        isGptSearchClicked: false
+        isGptSearchClicked: false,
+        callCount: 10,
     },
     reducers: {
         toggleGptSearchView: (state) => {
@@ -22,9 +23,12 @@ const gptSlice = createSlice({
         },
         setIsGptSeachClicked: (state, action) =>{
             state.isGptSearchClicked = action.payload;
+        },
+        setCallCount: (state, action) => {
+            state.callCount = action.payload;
         }
     }
 });
 
-export const {toggleGptSearchView, addGptMoviesRsult, setGptSearchView, setIsGptSeachClicked} = gptSlice.actions;
+export const {toggleGptSearchView, addGptMoviesRsult, setGptSearchView, setIsGptSeachClicked, setCallCount} = gptSlice.actions;
 export default gptSlice.reducer;
