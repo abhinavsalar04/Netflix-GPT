@@ -1,4 +1,48 @@
-# Netflix GPT
+# Features
+- Login/Sign Up
+    - Sign In/Sign Up Form
+    - Redirect to Browse Page
+- Browse  (After authentication)
+    - Header
+    - Main Movie
+        - Trailer in background
+        - Title & sescription
+        - Movie Suggestions
+             - Movie Lists (verticle scrollable)
+
+- Movie Details Page
+    - Main Conatiner
+        - Movie poster
+        - Title, overview, runtime, writer, director details
+    - Secondary Page
+        - Top cast
+        - Similar and recommended movies sugegestions
+- NetflixGPT
+    - Search Bar
+    - Multilingual Search bar
+    - Movie Suggestions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Netflix GPT Diary
 
 - Create React App
 - Configured Tailwindcss
@@ -50,25 +94,13 @@
 - Memoization
 - Adding .env file to make API key secure
 - Made our App responsive
+- Movie details page added
+- similar movies state added in store
+- similar movies custom hook added
+- watch trailer video functionality added
 
 
 
 
 
 
-# Features
-- Login/Sign Up
-    - Sign In/Sign Up Form
-    - Redirect to Browse Page
-- Browse  (After authentication)
-    - Header
-    - Main Movie
-        - Trailer in background
-        - Title & sescription
-        - Movie Suggestions
-             - Movie Lists (verticle scrollable)
-
-- NetflixGPT
-    - Search Bar
-    - Multilingual Search bar
-    - Movie Suggestions
