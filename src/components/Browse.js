@@ -6,7 +6,6 @@ import SecondaryContainer from "./homePage/SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import GptSearch from "./gptSearchPage/GptSearch";
 import { useSelector } from "react-redux";
 import Footer from "./Footer";
 import GptSearchPage from "./gptSearchPage/GptSearchPage";

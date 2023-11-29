@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { setGptSearchView, toggleGptSearchView } from "../store/gptSlice";
 import { changeLanguage } from "../store/configSlice";
+import { FaUserCircle } from "react-icons/fa";
+
 const Header = () => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const dispatch = useDispatch();
@@ -125,6 +127,11 @@ const Header = () => {
                         className="hidden md:block w-8 h-8 rounded-[100%] m-4"
                         alt="userIcon" src={USER_AVATAR} 
                     />
+                    {/* <div className="hidden md:block w-8 h-8 rounded-[100%] m-4">
+                      <FaUserCircle 
+
+                      />
+                    </div> */}
                     <button
                         onClick={signoutHandler}
                         className="text-white   h-8 px-2 mx-4 md:mx-2 rounded-md md:my-[15px] bg-opacity-90 font-bold hover:text-red-600">

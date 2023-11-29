@@ -45,12 +45,12 @@ const MovieDetailsMainContainer = () => {
                 <Header />
             </div>
             <div
-                className=" flex flex-col md:flex-row pt-12 pb-8 md:pt-32 justify-center bg-gradient-to-b from-[rgb(51,51,51)] to-black  text-white grid-cols-12 ">
+                className=" flex flex-col md:flex-row pt-12 pb-8 md:pt-20 justify-center bg-gradient-to-b from-[rgb(51,51,51)] to-black  text-white grid-cols-12 ">
                     {/* <Header /> */}
-                <div className="px-8 md:mx-4 md:ml-8">
-                    <img className="w-full md:w-[325px]  rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
+                <div className="px md:mx-4 lg:mx-4 md:ml-8">
+                    <img className="w-full md:w-[350px] lg:[350px] rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
                 </div>
-                <div className="md:max-w-[50%] my-8 mx-8 md:py-0 md:my-0">
+                <div className="md:max-w-[750px] my-8 mx-8 md:py-0 md:my-0">
                     <h1 className="text-4xl">{title}</h1>
                     <h2 className="text-xl my-2">{tagline}</h2>
                     <div className="my-4">
@@ -102,37 +102,26 @@ const MovieDetailsMainContainer = () => {
                                 </span>
                             </h2>
                         </div>
-                        <hr className="" style={{borderTop: "1px solid #3e3f40"}}></hr>
+                        <hr className="w-[104%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
                         <div className="flex my-4">
                             <h2 className="font-bold ">Director:
                                     <span className="font-normal px-2 text-gray-500">{director}</span>
                             </h2>
                         </div>
-                        <hr className="" style={{borderTop: "1px solid #3e3f40"}}></hr>
+                        <hr className="w-[104%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
                         <div className="flex my-4">
                             <h2 className="font-bold ">Writer:
                                     <span className="font-normal px-2 text-gray-500">{writer}</span>
                             </h2>
                         </div>
-                        <hr className="" style={{borderTop: "1px solid #3e3f40"}}></hr>
+                        <hr className="w-[104%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
                     </div>
                 </div>
                 <VideoPopup 
                     showTrailer={showTrailer}
                     setShowTrailer={setShowTrailer}
                 />
-                {/* { selectedMovieDetails &&
-                    <div className="w-[800px] h-[450px] aspect-w-9 aspect-h-16 align-middle mt-72 absolute rounded-lg">
-                        <ReactPlayer
-                            url={`https://www.youtube.com/watch?v=_u-WgSN5ymU&list=PLu71SKxNbfoBGh_8p_NS-ZAh6v7HhYqHW`}
-                            controls
-                            width="100%"
-                            height="100%"
-                            playing={true}
-                        />
-                    </div>
-                    
-                } */}
+
             </div>
         </>
     );
