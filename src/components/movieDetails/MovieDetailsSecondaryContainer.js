@@ -20,7 +20,7 @@ const MovieDetailsSecondaryContainer = () => {
            </div>
            {
                 recommendedMovies?.results?.length  &&
-                <div className="">
+                <div className="px-4 md:px-0 lg:px-0">
                     <MovieList title={"Recommended Movies"} movies={recommendedMovies}/>
                 </div>
            
