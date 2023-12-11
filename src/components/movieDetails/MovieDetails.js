@@ -16,7 +16,7 @@ const MovieDetails = () => {
     },[]);
 
     return (
-        <div className="bg-black w-screen">
+        <div className="bg-gradient-to-b from-[rgb(51,51,51)] to-black w-screen">
             <MovieDetailsMainContainer />
             <MovieDetailsSecondaryContainer />
             <Footer ></Footer>

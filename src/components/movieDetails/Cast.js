@@ -13,8 +13,6 @@ const Cast = () => {
     return (
         <div className="castSection">
             <div>
-                <div className="sectionHeading">Top Cast</div>
-
                 <div className="listItems">
                     {
                         cast?.map((item) => {

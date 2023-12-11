@@ -15,7 +15,7 @@ const VideoPopup = () => {
     const {id} = selectedMovieDetails;
     const dispatch = useDispatch();
 
-    useSelectedMovieTrailerVideo(id);
+     useSelectedMovieTrailerVideo(id);
 
     const hidePopup = () => {
         dispatch(setShowTrailer(false));

@@ -5,8 +5,6 @@ import CircleRating from "./CircleRating";
 import dayjs from "dayjs"
 import Header from "../Header";
 import VideoPopup from "./VideoPopup";
-import ReactPlayer from "react-player";
-import { useState } from "react";
 import { setShowTrailer } from "../../store/moviesSlice";
 
 
@@ -45,14 +43,13 @@ const MovieDetailsMainContainer = () => {
                 <Header />
             </div>
             <div
-                className=" flex flex-col md:flex-row pt-12 pb-8 md:pt-20 justify-center bg-gradient-to-b from-[rgb(51,51,51)] to-black  text-white grid-cols-12 ">
-                    {/* <Header /> */}
-                <div className="px md:mx-4 lg:mx-4 md:ml-8">
-                    <img className="w-full md:w-[350px] lg:[350px] rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
+                className="flex flex-col md:flex-row pt-12 pb-8 md:pt-20 justify-center bg-inherit  text-white md:px-[10%]">
+                <div className="md:pr-8 lg:pr-8 flex-shrink-0 px-2">
+                    <img className="w-screen md:w-[350px] lg:[350px] rounded-lg" src={MOVIE_POSTER_CDN + poster_path} alt="movie-poster" />
                 </div>
-                <div className="md:max-w-[750px] my-8 mx-8 md:py-0 md:my-0">
-                    <h1 className="text-4xl">{title}</h1>
-                    <h2 className="text-xl my-2">{tagline}</h2>
+                <div className="md:max-w-[750px] my-8 ml-6 md:py-0 md:my-0">
+                    <h1 className="text-5xl">{title}</h1>
+                    <h2 className="text-xl my-2 text-gray-400">{tagline}</h2>
                     <div className="my-4">
                         {
                             genres.map((genre) => (
@@ -86,35 +83,38 @@ const MovieDetailsMainContainer = () => {
                         <p className="text-sm">{overview}</p>
                     </div>
                     <div>
-                        <div className="flex my-4">
-                            <h2 className="font-bold ">Status:
-                                <span className="font-normal px-2 text-gray-500">{status}</span>
-                            </h2>
-                            <h2 className="font-bold px-2 mx-4">Release Date:
-                                <span className="font-normal px-2 text-gray-500">
+                        <div className="flex my-4 ">
+                            <div className="font-bold flex mr-[8px] flex-wrap">
+                                <span className="mr-[8px] leading-[24px]">Status:</span>
+                                <span className="font-normal mr-[8px] leading-[24px] text-gray-500">{status}</span>
+                            </div>
+                            <div className="font-bold flex mx-[8px] flex-wrap">
+                                <span className="md:w-32 mx-[8px] leading-[24px]">Release Date:</span>
+                                <span className="md:w-32 font-normal mx-[8px] leading-[24px] text-gray-500">
                                     {dayjs(release_date).format("MMM D, YYYY")}
                                 </span>
-                            </h2>
-                            <h2 className="font-bold">Runtime: 
-                                <span className="font-normal px-2 text-gray-500">
-                                {hours > 0 ? <>{hours}h {minutes}m</> : `${minutes}m`}
+                            </div>
+                            <div className="font-bold flex mx-[8px] flex-wrap">
+                                <span className="mr-[8px] leading-[24px]">Runtime:</span>
+                                <span className=" font-normal mx-[8px] leading-[24px] text-gray-500">
+                                {hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`}
 
                                 </span>
-                            </h2>
+                            </div>
                         </div>
-                        <hr className="w-[104%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
+                        <hr className="lg:w-[108%] md:w-[120%] w-[99%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
                         <div className="flex my-4">
                             <h2 className="font-bold ">Director:
                                     <span className="font-normal px-2 text-gray-500">{director}</span>
                             </h2>
                         </div>
-                        <hr className="w-[104%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
+                        <hr className="lg:w-[108%] md:w-[120%] w-[99%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
                         <div className="flex my-4">
                             <h2 className="font-bold ">Writer:
                                     <span className="font-normal px-2 text-gray-500">{writer}</span>
                             </h2>
                         </div>
-                        <hr className="w-[104%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
+                        <hr className="lg:w-[108%] md:w-[120%] w-[99%]" style={{borderTop: "1px solid #3e3f40"}}></hr>
                     </div>
                 </div>
                 <VideoPopup 

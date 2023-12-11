@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS, MOVIE_DETAILS_BASE_URL, MOVIE_POSTER_CDN } from "../../utils/constants";
 import { addRecommendedMovies, addSelectMovieCredits, addSelectedMovieDetails, addSimilarMovies } from "../../store/moviesSlice";
 import {useNavigate} from "react-router-dom"
-import useSimilarMovies from "../../hooks/useSimilarMovies";
 
 const MovieCard = ({poster_path, movieId}) => {
+    const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     if(!poster_path) return;
@@ -26,6 +26,7 @@ const MovieCard = ({poster_path, movieId}) => {
         dispatch(addSimilarMovies(jsonSimilarMoviesData));
         dispatch(addRecommendedMovies(jsonRecommendedMovieData));
 
+        console.log("selectedMovie:", selectedMovieDetails);
         navigate("/movieDetails")
         // console.log(jsonMovieData);
         
