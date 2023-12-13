@@ -37,9 +37,17 @@ const MovieDetailsMainContainer = () => {
         dispatch(setShowTrailer(true));
        
     }
+    
+
     return (
         <>
-           <div className="">
+            {/* <div className="h-full  w-full absolute opacity-10">
+                <img 
+                    className="object-cover w-full h-full object-center"
+                    src={`https://image.tmdb.org/t/p/original/${selectedMovieDetails?.backdrop_path}`} alt="logo" 
+                />
+            </div> */}
+           <div className="bg-opacity-[60%] bg-white">
                 <Header />
             </div>
             <div
@@ -89,13 +97,13 @@ const MovieDetailsMainContainer = () => {
                                 <span className="font-normal mr-[8px] leading-[24px] text-gray-500">{status}</span>
                             </div>
                             <div className="font-bold flex mx-[8px] flex-wrap">
-                                <span className="md:w-32 mx-[8px] leading-[24px]">Release Date:</span>
-                                <span className="md:w-32 font-normal mx-[8px] leading-[24px] text-gray-500">
+                                <span className="md:w-32  leading-[24px]">Release Date:</span>
+                                <span className="md:w-32 font-normal leading-[24px] text-gray-500 ">
                                     {dayjs(release_date).format("MMM D, YYYY")}
                                 </span>
                             </div>
                             <div className="font-bold flex mx-[8px] flex-wrap">
-                                <span className="mr-[8px] leading-[24px]">Runtime:</span>
+                                <span className="mx-[8px] leading-[24px]">Runtime:</span>
                                 <span className=" font-normal mx-[8px] leading-[24px] text-gray-500">
                                 {hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`}
 

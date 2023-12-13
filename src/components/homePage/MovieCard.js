@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS, MOVIE_DETAILS_BASE_URL, MOVIE_POSTER_CDN } from "../../utils/constants";
-import { addRecommendedMovies, addSelectMovieCredits, addSelectedMovieDetails, addSimilarMovies } from "../../store/moviesSlice";
+import { addRecommendedMovies, addSelectMovieCredits, addSelectedMovieDetails, addSelectedMovieTrailerVideo, addSimilarMovies } from "../../store/moviesSlice";
 import {useNavigate} from "react-router-dom"
 
 const MovieCard = ({poster_path, movieId}) => {
@@ -14,17 +14,25 @@ const MovieCard = ({poster_path, movieId}) => {
         const creditDetails = await fetch(`${MOVIE_DETAILS_BASE_URL+movieId}/credits`, API_OPTIONS);
         const similarMoviesList = await fetch(`${MOVIE_DETAILS_BASE_URL}${movieId}/similar`, API_OPTIONS);
         const recommendedMoviesList = await fetch(`${MOVIE_DETAILS_BASE_URL}${movieId}/recommendations`, API_OPTIONS);
+        const trailerVideos = await fetch(`${MOVIE_DETAILS_BASE_URL}${movieId}/videos`, API_OPTIONS)
+
         
 
         const jsonMovieData = await movieDetails.json();
         const jsonCreditData = await creditDetails.json();
         const jsonSimilarMoviesData = await similarMoviesList.json();
         const jsonRecommendedMovieData = await recommendedMoviesList.json();
+        const jsonTrailerData = await trailerVideos.json();
 
+        
         dispatch(addSelectedMovieDetails(jsonMovieData));
         dispatch(addSelectMovieCredits(jsonCreditData));
         dispatch(addSimilarMovies(jsonSimilarMoviesData));
         dispatch(addRecommendedMovies(jsonRecommendedMovieData));
+        
+        const filterVideos = jsonTrailerData?.results?.filter((video) => video?.type === 'Trailer');
+        console.log("trailer details: ", jsonTrailerData)
+        dispatch(addSelectedMovieTrailerVideo(filterVideos[0]));
 
         console.log("selectedMovie:", selectedMovieDetails);
         navigate("/movieDetails")

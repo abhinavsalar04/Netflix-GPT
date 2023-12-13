@@ -1,15 +1,18 @@
-import React  from "react";
-import { useDispatch } from "react-redux";
-import { addSelectMovieCredits, addSelectedMovieDetails } from "../../store/moviesSlice";
+import React, { useState }  from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addSelectMovieCredits, addSelectedMovieDetails, addSelectedMovieTrailerVideo } from "../../store/moviesSlice";
 import { API_OPTIONS, MOVIE_DETAILS_BASE_URL } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
+import VideoPopup from "../movieDetails/VideoPopup";
 
 const VideoTitle = ({title, overview, movieId}) => {
+    const [showTrailer, setShowTrailer] = useState(false);
+    const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    const showMoreInfoHandler = async (movieId) => {
-
+    const setData = async () => {
         const movieDetails = await fetch(`${MOVIE_DETAILS_BASE_URL+movieId}`, API_OPTIONS);
         const creditDetails = await fetch(`${MOVIE_DETAILS_BASE_URL+movieId}/credits`, API_OPTIONS);
 
@@ -18,6 +21,11 @@ const VideoTitle = ({title, overview, movieId}) => {
 
         dispatch(addSelectedMovieDetails(jsonMovieData));
         dispatch(addSelectMovieCredits(jsonCreditData));
+    }
+   
+    const showMoreInfoHandler = async (movieId) => {
+
+        setData(movieId);
         // console.log(jsonMovieData);
         navigate("/movieDetails")
     }
@@ -27,8 +35,15 @@ const VideoTitle = ({title, overview, movieId}) => {
             <p className="hidden md:inline-block lg:text-lg md:text-[100%] md:py-6 md:w-[70%]">{overview}</p>
             <div className="mt-[4px] md:m-0">
                 <button 
+                    // onClick={() => handlePlay(movieId)}
                     className="hidden md:inline-block bg-white text-black md:p-[.25rem] md:px-[1.3rem] p-[.15rem] px-[.85rem] rounded-[3px] hover:bg-opacity-80 md:text-md text-sm cursor-pointer">
-                    Play
+                    <span className="flex justify-center items-center">
+                        <span className="px-[2px]">
+                            <FaPlay />
+                        </span>
+                        Play
+                    </span>
+                    
                 </button>
                 <button
                     onClick={() => showMoreInfoHandler(movieId)}
@@ -37,6 +52,10 @@ const VideoTitle = ({title, overview, movieId}) => {
                     More Info
                 </button>
             </div>
+            <VideoPopup 
+                    showTrailer={showTrailer}
+                    setShowTrailer={setShowTrailer}
+            />
         </div>
     );
 }

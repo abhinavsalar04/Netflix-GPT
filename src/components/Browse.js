@@ -20,7 +20,7 @@ const Browse = () => {
     if(showGptSearch) return <GptSearchPage />
     return (
         <div className="">
-            <Header />
+            <Header opacity={90} />
             <MainContainer />
             <SecondaryContainer />
             <Footer />

@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { setGptSearchView, toggleGptSearchView } from "../store/gptSlice";
 import { changeLanguage } from "../store/configSlice";
+import { IoSearchOutline } from "react-icons/io5";
 
-
-const Header = () => {
+const Header = (props) => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -89,7 +89,7 @@ const Header = () => {
 
       // console.log("Header");
     return (
-        <div className="w-screen md:py-0 md:px-6 bg-black  bg-opacity-[70%] z-10 flex flex-col md:flex-row justify-between">
+        <div className={`w-screen md:py-0 md:px-6 bg-black bg-opacity-[${props.opacity}%]  z-10 flex flex-col md:flex-row justify-between`}>
             <img 
                 onClick={goToHomePageHandler}
                 className="w-36 mx-auto md:mx-0 cursor-pointer"
@@ -103,7 +103,7 @@ const Header = () => {
                       <div className="flex">
                         <select 
                           onChange={changeLanguageHandler}
-                          className="text-white bg-[rgb(51,51,51)] bg-opacity-60 h-8 px-2 mx-4 md:mx-6 rounded-md md:my-[14px] font-bold " >
+                          className="text-white bg-[rgb(51,51,51)] bg-opacity-60 h-8 px-2 mx-4 md:mx-6 rounded-md md:my-[14px] " >
                           {
                             SUPPORTED_LANGUAGES.map((lang) => (
                                 <option 
@@ -118,18 +118,18 @@ const Header = () => {
                       </div>
                     }
                     
-                    <button
+                    <div
                       onClick={handleShowGptSearch}
-                      className="text-white  h-8 px-2 mx-4 md:mx-2  rounded-md md:my-[14px] bg-opacity-90 font-bold hover:text-red-600">
-                      GPT Search
-                    </button>
+                      className="text-white cursor-pointer  h-8 px-2 mx-4 md:mx-2  rounded-md md:my-[14px] bg-opacity-90  hover:text-red-600 flex items-center">
+                      <span className="px-2"><IoSearchOutline size={16}/></span> <span >Search</span>
+                    </div>
                     <img
                         className="hidden md:block w-8 h-8 rounded-[100%] m-4"
                         alt="userIcon" src={USER_AVATAR} 
                     />
                     <button
                         onClick={signoutHandler}
-                        className="text-white   h-8 px-2 mx-4 md:mx-2 rounded-md md:my-[15px] bg-opacity-90 font-bold hover:text-red-600">
+                        className="text-white   h-8 px-2 mx-4 md:mx-2 rounded-md md:my-[15px] bg-opacity-90  hover:text-red-600">
                         Sign Out
                     </button>
                 </div>

@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../../utils/languageConstants";
-import { useRef} from "react";
+import { useRef, useState} from "react";
 import openai from "../../utils/openAI";
 import { addGptMoviesRsult } from "../../store/gptSlice";
 import { API_OPTIONS } from "../../utils/constants";
+import { TiStarFullOutline } from "react-icons/ti";
+import { addMovieSearchedResults } from "../../store/moviesSlice";
 
 
 
-const GptSearchBar = () => {
-
+const GptSearchBar = ({searchType, setSearchType}) => {
+    
     const dispatch = useDispatch();
     const searchText = useRef(null);
     const langKey = useSelector(store => store.config.lang);
@@ -21,7 +23,15 @@ const GptSearchBar = () => {
     }
 
 
+    
 
+    const normalSearchHandler = async () => {
+        const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchText.current.value}&include_adult=false&language=en-US&page=1`;
+        const moviesList = await fetch(searchUrl, API_OPTIONS);
+        const jsonData = await moviesList.json();
+
+        dispatch(addMovieSearchedResults({movieName: searchText.current.value, searchResults: jsonData}));
+    }
     const gptSearchHandler = async () => {
        
         
@@ -59,10 +69,40 @@ const GptSearchBar = () => {
 
 
     }
+
+    const searchHander =  () => {
+        if(searchType === 'search'){
+            normalSearchHandler();
+        }
+        else if(searchType === 'gptsearch'){
+            gptSearchHandler();
+        }
+    }
     return (
         <div >
-            
-            <div className="flex justify-center pt-16 items-center">
+            <div className="text-white flex justify-between bg-[rgb(51,51,51)] w-56 mx-auto mt-6 rounded-lg h-10 items-center  py-2 px-[2px]">
+                <span 
+                    onClick={() => setSearchType("search")}
+                    className={`${searchType === 'search' ? 'bg-red-700' : ''} rounded-xl py-[5px] w-[50%] text-center cursor-pointer transition-all duration-700 `}>
+                    Search
+                </span>
+                <span 
+                    onClick={() => setSearchType("gptsearch")}
+                    className={` ${searchType === 'gptsearch' ? 'bg-red-700' : ''} rounded-xl  py-[5px] w-[50%] text-center cursor-pointer transition-all duration-700 `}>
+                    Gpt Search
+                </span>
+            </div>
+            {
+                searchType === 'gptsearch' &&
+                <div className="text-gray-200 flex justify-center items-center rounded mx-auto w-[50%] mt-6 bg-opacity-30">
+                    <span className="text-black font-bold text-2xl">
+                        <TiStarFullOutline color="rgb(80,80,80)" />
+                    </span>
+                    GPT search results may not be updated
+                </div>
+            }
+            <div className={`flex justify-center items-center ${searchType === 'search' ? 'pt-8' : 'pt-[2px]'}`}>
+                
                 <form 
                     onSubmit={(e) => e.preventDefault()}
                     className="w-[95%] md:w-2/3 md:max-w-[800px] bg-black grid grid-cols-12 rounded-md  text-sm md:text-[16px]">
@@ -70,11 +110,11 @@ const GptSearchBar = () => {
                         ref={searchText}
                         type="text" 
                         placeholder={lang[langKey].placeholder} 
-                        className="p-2 md:p-4 m-4 col-span-9 rounded-md bg-[rgb(51,51,51)] text-white"    
+                        className="p-2 md:p-[12px] m-4 col-span-9 rounded-md bg-[rgb(51,51,51)] text-white"    
                         />
                     <button
-                        onClick={gptSearchHandler}
-                        className="col-span-3 m-4  text-gray-300 font-bold  bg-gradient-to-b from-red-600 to-[rgb(43,25,25)] bg-opacity-80 rounded-md"
+                        onClick={searchHander}
+                        className="col-span-3 m-4  text-white   bg-red-700 rounded-md"
                     >
                         {lang[langKey].search}
                     </button>

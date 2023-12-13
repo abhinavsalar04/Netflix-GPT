@@ -13,7 +13,10 @@ const moviesSlice = createSlice({
         selectedMovieTrailerVideo: null,
         similarMovies: null,
         recommendedMovies: null,
-        showTrailer: false
+        showTrailer: false,
+        movieSearchResults: null,
+        searchedMovieName: null
+
     },
     reducers: {
         addNowPlayingMovies: (state, action) => {
@@ -48,6 +51,11 @@ const moviesSlice = createSlice({
         },
         setShowTrailer: (state, action) =>  {
             state.showTrailer = action.payload;
+        },
+        addMovieSearchedResults: (state, action) => {
+            const {movieName, searchResults} = action.payload;
+            state.movieSearchResults = searchResults;
+            state.searchedMovieName = movieName;
         }
     }
 });
@@ -63,7 +71,8 @@ export const {
     addSelectedMovieTrailerVideo,
     addSimilarMovies,
     addRecommendedMovies,
-    setShowTrailer
+    setShowTrailer,
+    addMovieSearchedResults,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
