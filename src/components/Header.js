@@ -97,7 +97,7 @@ const Header = (props) => {
                 alt = "logo"
                 />
             { user &&
-                <div className="flex px-2 justify-between  md:m-0">
+                <div className="flex px-2 pb-2 justify-between  md:m-0">
                     {
                       showGptSearch && 
                       <div className="flex">

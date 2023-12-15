@@ -24,7 +24,7 @@ const GptSearchPage = () => {
                         <GptMoviesSuggestions />
                     )
                 } 
-                <div className="mt-6 bottom-0  w-full"><Footer /></div>
+                <div className="md:mt-6 lg:mt-6 mt-20 bottom-0  w-full"><Footer /></div>
             </div>
             
         </div>
