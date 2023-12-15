@@ -9,16 +9,24 @@ import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import { useSelector } from "react-redux";
 import Footer from "./Footer";
 import GptSearchPage from "./gptSearchPage/GptSearchPage";
+import BrowseShimmer from "./shimmer/BrowseShimmer";
 
 const Browse = () => {
     const showGptSearch = useSelector(store => store.gpt.showGptSearch);
+    const {nowPlayingMovies} = useSelector((store) => store.movies);
     useNowPlayingMovies();
     usePopularMovies();
     useTopRatedMovies();
     useUpcomingMovies();
     // console.log("Browse Compoenent!");
     if(showGptSearch) return <GptSearchPage />
-    return (
+    return !nowPlayingMovies ? (
+       <>
+            <Header></Header>
+            <BrowseShimmer />
+            <Footer />
+       </>
+    ) : (      
         <div className="">
             <Header opacity={90} />
             <MainContainer />

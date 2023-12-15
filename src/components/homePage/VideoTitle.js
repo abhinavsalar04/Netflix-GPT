@@ -1,5 +1,5 @@
 import React, { useState }  from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addSelectMovieCredits, addSelectedMovieDetails, addSelectedMovieTrailerVideo } from "../../store/moviesSlice";
 import { API_OPTIONS, MOVIE_DETAILS_BASE_URL } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,6 @@ import VideoPopup from "../movieDetails/VideoPopup";
 
 const VideoTitle = ({title, overview, movieId}) => {
     const [showTrailer, setShowTrailer] = useState(false);
-    const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     

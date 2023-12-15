@@ -1,21 +1,18 @@
 
 import MovieDetailsMainContainer from "./MovieDetailsMainContainer";
 import MovieDetailsSecondaryContainer from "./MovieDetailsSecondaryContainer";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+
 import Footer from "../Footer";
+import MovieDetailsShimmer from "../shimmer/MovieDetailsShimmer";
+import userSlice from "../../store/userSlice";
 
 const MovieDetails = () => {
+    const isLoadingDetails = useSelector((store) => store.movies.isLoadingDetails);
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
-    const navigate = useNavigate();
-    
-    useEffect(() => {
-        if(!selectedMovieDetails)
-        navigate("/browse");
-    },[]);
-
-    return (
+    return !selectedMovieDetails || isLoadingDetails ? (
+        <MovieDetailsShimmer />
+    ) : (
         <div className="bg-gradient-to-b from-[rgb(51,51,51)] to-black w-screen">
              
             <MovieDetailsMainContainer />
