@@ -111,11 +111,11 @@ const GptSearchBar = ({searchType, setSearchType}) => {
             </div>
             {
                 searchType === 'gptsearch' &&
-                <div className="text-[cyan] flex justify-center items-center rounded mx-auto w-[310px] mt-6 bg-opacity-30">
+                <div className="text-[cyan] flex justify-center items-center rounded mx-auto w-[320px] mt-6">
                     <span className="text-black font-bold text-2xl border-white">
                         <BsStar color="cyan" />
                     </span>
-                    GPT search results may not be updated
+                    GPT search results may not be upto date!
                 </div>
             }
             <div className={`flex justify-center items-center ${searchType === 'search' ? 'pt-8' : 'pt-[4px]'}`}>

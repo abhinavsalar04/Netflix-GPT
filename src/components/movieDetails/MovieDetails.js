@@ -5,11 +5,12 @@ import { useSelector } from "react-redux";
 
 import Footer from "../Footer";
 import MovieDetailsShimmer from "../shimmer/MovieDetailsShimmer";
-import userSlice from "../../store/userSlice";
+
 
 const MovieDetails = () => {
     const isLoadingDetails = useSelector((store) => store.movies.isLoadingDetails);
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
+
     return !selectedMovieDetails || isLoadingDetails ? (
         <MovieDetailsShimmer />
     ) : (

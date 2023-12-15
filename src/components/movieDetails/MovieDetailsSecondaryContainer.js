@@ -6,7 +6,6 @@ const MovieDetailsSecondaryContainer = () => {
     const selectedMovieDetails = useSelector((store) => store.movies.selectedMovieDetails);
     const similarMovies = useSelector((store) => store.movies.similarMovies);
     const recommendedMovies = useSelector((store) => store.movies.recommendedMovies);
-    
     if(!selectedMovieDetails) return; 
     
     return (

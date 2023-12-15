@@ -17,7 +17,7 @@ const VideoPopup = () => {
     
     // console.log(showTrailer, videoId);
     // console.log("key:",selectedMovieTrailerVideo);
-    console.log("play clicked!");
+    // console.log("play clicked!");
     return (
         <div className={`videoPopup ${showTrailer ? "visible" : ""}`}>
             <div className="opacityLayer" onClick={hidePopup}></div>

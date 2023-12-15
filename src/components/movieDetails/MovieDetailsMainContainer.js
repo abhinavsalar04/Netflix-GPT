@@ -13,11 +13,11 @@ const MovieDetailsMainContainer = () => {
     const selectedMovieCredits = useSelector((store) => store.movies.selectedMovieCredits)
     const showTrailer = useSelector((store) => store.movies.showTrailer);
     const dispatch = useDispatch();
-   
-    // const showTrailer = userSlice((store) => store.movies.showTrailer);
-    if(!selectedMovieDetails) return null;
+
+   // const showTrailer = userSlice((store) => store.movies.showTrailer);
+   if(!selectedMovieDetails) return null;
     const crew = selectedMovieCredits?.crew;
-    
+    console.log()
     
     const directors = crew?.filter((f) => f.job === "Director");
     const writers = crew?.filter((f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
