@@ -33,17 +33,19 @@ Login/Sign Up page
 
 Main Page 
 
-![BrowsePage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/58604cfd-670c-4637-a5af-cc24682d672c)
+![BrowsePage1](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/7b746b92-a611-4bcd-a2eb-acfa7bc0c74a)
+
 
 
 Main Page movie suggestions
 
-![BrowsePage_Suggestions](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/72fe3250-d51e-4229-99ca-5dafb3acce07)
+![BrowsePage2](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/d0c4d923-0caf-43f8-abcc-96a4c694e064)
 
 
 GPT Search Page 
 
-![GPTSearchPage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/a2bb6f4c-f434-49ce-b3f3-793748e4754f)
+![SearchPage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/31db112e-aa2e-4f5f-ae90-bc94ab0cebea)
+
 
 
 GPT Search Page multilingual feature
@@ -54,14 +56,16 @@ GPT Search Page multilingual feature
 
 Movie Details Page 
 
-![MovieDetailsPage](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/cfa57ad9-cecd-4b97-bea6-881ac4fc1722)
+
+![DetailsPage1](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/849f23cc-7ea7-43f1-b770-a5eef827bca4)
 
 
 
 Movie Details Page watch trailer
 
-![MovieDetailsPage_watchTrailer](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/3208fd5c-3e3f-401d-9d90-9fb95cf439b0)
 
+
+![PlayingMovie](https://github.com/abhinavsalar18/Netflix-GPT/assets/96479797/7f43eaf5-d7c6-49ca-877a-e02d7b8469d1)
 
 
 
