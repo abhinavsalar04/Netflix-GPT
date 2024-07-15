@@ -38,7 +38,6 @@ const MovieDetailsMainContainer = () => {
     genres,
     poster_path,
     overview,
-    backdrop_path,
     vote_average,
     release_date,
     runtime,
@@ -48,7 +47,7 @@ const MovieDetailsMainContainer = () => {
     minutes = runtime % 60
 
   // console.log(poster_path);
-  const handleWatchTrailer = (id) => {
+  const handleWatchTrailer = () => {
     dispatch(setShowTrailer(true))
   }
 
