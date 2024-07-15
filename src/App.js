@@ -1,11 +1,11 @@
-import Body from "./components/Body";
+import Body from './components/Body'
 
 function App() {
   return (
     <div className="">
       <Body></Body>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
